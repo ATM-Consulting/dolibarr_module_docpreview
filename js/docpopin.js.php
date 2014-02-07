@@ -7,7 +7,7 @@ function docPopin_set_link() {
 	 * http://127.0.0.1/ATM/dolibarr/htdocs/document.php?modulepart=facture&file=02277394%2F02277394.pdf 
 	 */
 	
-	$('table.formdoc a').each(function() {
+	$('table.formdoc a,div.linkobject a').each(function() {
 		
 		var url = $(this).attr('href');
 		
