@@ -17,18 +17,18 @@
  */
 
 /**
- * 	\defgroup	DocPopin	DocPopin module
- * 	\brief		DocPopin module descriptor.
- * 	\file		core/modules/modDocPopin.class.php
- * 	\ingroup	DocPopin
- * 	\brief		Description and activation file for module DocPopin
+ * 	\defgroup	DocPreview	DocPreview module
+ * 	\brief		DocPreview module descriptor.
+ * 	\file		core/modules/modDocPreview.class.php
+ * 	\ingroup	DocPreview
+ * 	\brief		Description and activation file for module DocPreview
  */
 include_once DOL_DOCUMENT_ROOT . "/core/modules/DolibarrModules.class.php";
 
 /**
- * Description and activation class for module DocPopin
+ * Description and activation class for module DocPreview
  */
-class modDocPopin extends DolibarrModules
+class modDocPreview extends DolibarrModules
 {
 
     /**
@@ -45,9 +45,9 @@ class modDocPopin extends DolibarrModules
         // Id for module (must be unique).
         // Use a free id here
         // (See in Home -> System information -> Dolibarr for list of used modules id).
-        $this->numero = 104069; // 104000 to 104999 for ATM CONSULTING
+        $this->numero = 104070; // 104000 to 104999 for ATM CONSULTING
         // Key text used to identify module (for permissions, menus, etc...)
-        $this->rights_class = 'DocPopin';
+        $this->rights_class = 'DocPreview';
 
         // Family can be 'crm','financial','hr','projects','products','ecm','technic','other'
         // It is used to group modules in module setup page
@@ -59,11 +59,11 @@ class modDocPopin extends DolibarrModules
         // Module description
         // used if translation string 'ModuleXXXDesc' not found
         // (where XXX is value of numeric property 'numero' of module)
-        $this->description = "popin the document download link";
+        $this->description = "Preview for PDF attached in attachments";
         // Possible values for version are: 'development', 'experimental' or version
         $this->version = '1.0';
         // Key used in llx_const table to save module status enabled/disabled
-        // (where DocPopin is value of property name of module in uppercase)
+        // (where DocPreview is value of property name of module in uppercase)
         $this->const_name = 'MAIN_MODULE_' . strtoupper($this->name);
         // Where to store the module in setup page
         // (0=common,1=interface,2=others,3=very specific)
@@ -73,19 +73,19 @@ class modDocPopin extends DolibarrModules
         // use this->picto='pictovalue'
         // If file is in module/img directory under name object_pictovalue.png
         // use this->picto='pictovalue@module'
-        $this->picto = 'DocPopin@DocPopin'; // mypicto@DocPopin
+        $this->picto = 'docpreview@docpreview'; // mypicto@DocPreview
         // Defined all module parts (triggers, login, substitutions, menus, css, etc...)
-        // for default path (eg: /DocPopin/core/xxxxx) (0=disable, 1=enable)
-        // for specific path of parts (eg: /DocPopin/core/modules/barcode)
-        // for specific css file (eg: /DocPopin/css/DocPopin.css.php)
+        // for default path (eg: /DocPreview/core/xxxxx) (0=disable, 1=enable)
+        // for specific path of parts (eg: /DocPreview/core/modules/barcode)
+        // for specific css file (eg: /DocPreview/css/DocPreview.css.php)
        
         // Data directories to create when module is enabled.
-        // Example: this->dirs = array("/DocPopin/temp");
+        // Example: this->dirs = array("/DocPreview/temp");
         $this->dirs = array();
 
         // Config pages. Put here list of php pages
-        // stored into DocPopin/admin directory, used to setup module.
-        $this->config_page_url = array("admin_DocPopin.php@DocPopin");
+        // stored into DocPreview/admin directory, used to setup module.
+        $this->config_page_url = false;
 
         // Dependencies
         // List of modules id that must be enabled if this module is enabled
@@ -96,13 +96,14 @@ class modDocPopin extends DolibarrModules
         $this->phpmin = array(5, 3);
         // Minimum version of Dolibarr required by module
         $this->need_dolibarr_version = array(3, 2);
+		$this->langfiles = array("docpreview@docpreview"); // langfiles@mymodule
         // Constants
         // List of particular constants to add when module is enabled
         // (key, 'chaine', value, desc, visible, 'current' or 'allentities', deleteonunactive)
         // Example:
      
      	$this->module_parts = array(
-				'js' => array('/docpopin/js/docpopin.js.php')
+				'js' => array('/docpreview/js/docpreview.js.php')
 		);
        
     }
@@ -144,13 +145,13 @@ class modDocPopin extends DolibarrModules
     /**
      * Create tables, keys and data required by module
      * Files llx_table1.sql, llx_table1.key.sql llx_data.sql with create table, create keys
-     * and create data commands must be stored in directory /DocPopin/sql/
+     * and create data commands must be stored in directory /DocPreview/sql/
      * This function is called by this->init
      *
      * 	@return		int		<=0 if KO, >0 if OK
      */
     private function loadTables()
     {
-        return $this->_load_tables('/DocPopin/sql/');
+        return $this->_load_tables('/docpreview/sql/');
     }
 }
