@@ -1,6 +1,9 @@
 <?
 	if(is_file('../../master.inc.php'))  require('../../master.inc.php');
 	else require('../../../master.inc.php');
+	
+	$langs->load('docpreview@docpreview');
+	//echo $langs->trans('PreviewOf');
 ?>
 
 function docPreview_set_link() {
@@ -13,7 +16,7 @@ function docPreview_set_link() {
 			if(filename == '') filename = $(this).find('img').attr('alt');
 			
 			url = "javascript:docPreview_pop('<?= dol_buildpath('/docpreview/Viewer.js',1) ?>#"+url+"', filename)";
-			link = '&nbsp;<a href="'+url+'"><?= img_object('Preview','docpreview@docpreview') ?></a>';
+			link = '&nbsp;<a href="'+url+'"><?= img_object($langs->trans('Preview'),'docpreview@docpreview') ?></a>';
 			
 			$(this).after(link);
 		}
