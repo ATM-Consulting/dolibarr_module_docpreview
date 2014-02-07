@@ -24,7 +24,7 @@ function docPreview_set_link() {
 function docPreview_pop(url, filename) {
 	
 	if($('#docpreview').length==0) {
-		$('body').append('<div id="docpreview"><iframe src="#" width="100%" height="98%" allowfullscreen webkitallowfullscreen></iframe></div>');
+		$('body').append('<div id="docpreview"><iframe src="#" width="100%" height="100%" allowfullscreen webkitallowfullscreen frameborder=0></iframe></div>');
 	}
 	
 	$('#docpreview').dialog({
