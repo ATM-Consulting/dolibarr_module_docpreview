@@ -1,4 +1,4 @@
-<?
+<?php
 	if(is_file('../../master.inc.php'))  require('../../master.inc.php');
 	else require('../../../master.inc.php');
 	
