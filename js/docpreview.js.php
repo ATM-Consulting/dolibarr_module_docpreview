@@ -15,7 +15,7 @@ function docPreview_set_link() {
 			filename = $(this).text();
 			if(filename == '') filename = $(this).find('img').attr('alt');
 			
-			url = "javascript:docPreview_pop('<?= dol_buildpath('/docpreview/Viewer.js/v.html',1) ?>#"+url+"', filename)";
+			url = "javascript:docPreview_pop('<?= dol_buildpath('/docpreview/Viewer.js/v.html',1) ?>#"+encodeURIComponent(url)+"', filename)";
 			link = '&nbsp;<a href="'+url+'"><?= img_object($langs->trans('Preview'),'docpreview@docpreview') ?></a>';
 			
 			$(this).after(link);
