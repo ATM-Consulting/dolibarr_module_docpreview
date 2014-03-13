@@ -11,7 +11,7 @@ function docPreview_set_link() {
 		
 		var url = $(this).attr('href');
 		
-		if(url.indexOf('document.php?')!=-1 && url.indexOf('.pdf')!=-1 ) {
+		if(url.indexOf('document.php?')!=-1 && (url.indexOf('.pdf')!=-1 || url.indexOf('.odt')!=-1) ) {
 			filename = $(this).text();
 			if(filename == '') filename = $(this).find('img').attr('alt');
 			
