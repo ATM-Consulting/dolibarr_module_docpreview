@@ -101,7 +101,9 @@ class modDocPreview extends DolibarrModules
         // List of particular constants to add when module is enabled
         // (key, 'chaine', value, desc, visible, 'current' or 'allentities', deleteonunactive)
         // Example:
-     
+	$this->const=array();     
+
+
      	$this->module_parts = array(
 				'js' => array('/docpreview/js/docpreview.js.php')
 		);
