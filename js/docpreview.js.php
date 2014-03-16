@@ -15,8 +15,8 @@ function docPreview_set_link() {
 			filename = $(this).text();
 			if(filename == '') filename = $(this).find('img').attr('alt');
 			
-			url = "javascript:docPreview_pop('<?= dol_buildpath('/docpreview/Viewer.js/v.html',1) ?>#"+encodeURIComponent(url)+"', filename)";
-			link = '&nbsp;<a href="'+url+'"><?= img_object($langs->trans('Preview'),'docpreview@docpreview') ?></a>';
+			url = "javascript:docPreview_pop('<?php echo dol_buildpath('/docpreview/Viewer.js/v.html',1) ?>#"+encodeURIComponent(url)+"', filename)";
+			link = '&nbsp;<a href="'+url+'"><?php echo img_object($langs->trans('Preview'),'docpreview@docpreview') ?></a>';
 			
 			$(this).after(link);
 		}
@@ -31,7 +31,7 @@ function docPreview_pop(url, filename) {
 	}
 	
 	$('#docpreview').dialog({
-		title: "<?= $langs->trans('PreviewOf') ?> " + filename
+		title: "<?php echo $langs->trans('PreviewOf') ?> " + filename
 		,width:'80%'
 		,height:600
 		,modal:true
