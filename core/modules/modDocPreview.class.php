@@ -51,7 +51,7 @@ class modDocPreview extends DolibarrModules
 
         // Family can be 'crm','financial','hr','projects','products','ecm','technic','other'
         // It is used to group modules in module setup page
-        $this->family = "other";
+        $this->family = "technic";
         // Module label (no space allowed)
         // used if translation string 'ModuleXXXName' not found
         // (where XXX is value of numeric property 'numero' of module)
@@ -61,13 +61,13 @@ class modDocPreview extends DolibarrModules
         // (where XXX is value of numeric property 'numero' of module)
         $this->description = "Preview for PDF attached in attachments";
         // Possible values for version are: 'development', 'experimental' or version
-        $this->version = '1.0';
+        $this->version = '1.1';
         // Key used in llx_const table to save module status enabled/disabled
         // (where DocPreview is value of property name of module in uppercase)
         $this->const_name = 'MAIN_MODULE_' . strtoupper($this->name);
         // Where to store the module in setup page
         // (0=common,1=interface,2=others,3=very specific)
-        $this->special = 1;
+        $this->special = 2;
         // Name of image file used for this module.
         // If file is in theme/yourtheme/img directory under name object_pictovalue.png
         // use this->picto='pictovalue'
@@ -93,7 +93,7 @@ class modDocPreview extends DolibarrModules
         // List of modules id to disable if this one is disabled
         $this->requiredby = array();
         // Minimum version of PHP required by module
-        $this->phpmin = array(5, 3);
+        $this->phpmin = array(5, 0);
         // Minimum version of Dolibarr required by module
         $this->need_dolibarr_version = array(3, 2);
 		$this->langfiles = array("docpreview@docpreview"); // langfiles@mymodule
