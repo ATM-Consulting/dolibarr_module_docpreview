@@ -95,7 +95,7 @@ class modDocPreview extends DolibarrModules
         // Minimum version of PHP required by module
         $this->phpmin = array(5, 0);
         // Minimum version of Dolibarr required by module
-        $this->need_dolibarr_version = array(3, 2);
+        $this->need_dolibarr_version = array(3, 3);
 		$this->langfiles = array("docpreview@docpreview"); // langfiles@mymodule
         // Constants
         // List of particular constants to add when module is enabled
