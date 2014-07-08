@@ -54,7 +54,7 @@ function loadDocument(documentUrl) {
     "use strict";
 
     if (documentUrl) {
-        var extension = documentUrl.split('.').pop(),
+        var extension = documentUrl.toLowerCase().split('.').pop(),
             Plugin;
 
         switch (extension) {
