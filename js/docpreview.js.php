@@ -35,7 +35,7 @@ function docPreview_pop(url, filename) {
 	}
 	
 	$('#docpreview').dialog({
-		title: "<?php echo $langs->trans('PreviewOf') ?> " + filename
+		title: "<?php echo $langs->transnoentities('PreviewOf') ?> " + filename
 		,width:'80%'
 		,height:600
 		,modal:true
