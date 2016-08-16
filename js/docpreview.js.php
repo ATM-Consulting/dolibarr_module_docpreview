@@ -14,11 +14,13 @@ function docPreview_set_link() {
 		if(url.indexOf('document.php?')!=-1 && url.indexOf('action=delete')==-1 && (url.toLowerCase().indexOf('.pdf')!=-1 || url.toLowerCase().indexOf('.odt')!=-1) ) {
 			filename = $(this).text();
 			if(filename == '') filename = $(this).find('img').attr('alt');
+			if(filename == '') filename = $(this).find('img').attr('title');
+			if(filename) {
+				url = "javascript:docPreview_pop('<?php echo dol_buildpath('/docpreview/Viewer.js/v.html',1) ?>#"+encodeURIComponent(url)+"', '"+filename.replace(/'/g, "\\'")+"')";
+				link = '&nbsp;<a href="'+url+'"><?php echo img_object($langs->trans('Preview'),'docpreview@docpreview') ?></a>';
 			
-			url = "javascript:docPreview_pop('<?php echo dol_buildpath('/docpreview/Viewer.js/v.html',1) ?>#"+encodeURIComponent(url)+"', '"+filename.replace(/'/g, "\\'")+"')";
-			link = '&nbsp;<a href="'+url+'"><?php echo img_object($langs->trans('Preview'),'docpreview@docpreview') ?></a>';
-			
-			$(this).after(link);
+				$(this).after(link);
+			}
 		}
 		
 	});
@@ -33,7 +35,7 @@ function docPreview_pop(url, filename) {
 	}
 	
 	$('#docpreview').dialog({
-		title: "<?php echo $langs->trans('PreviewOf') ?> " + filename
+		title: "<?php echo $langs->transnoentities('PreviewOf') ?> " + filename
 		,width:'80%'
 		,height:600
 		,modal:true
