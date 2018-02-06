@@ -5,7 +5,7 @@
 	$langs->load('docpreview@docpreview');
 	//echo $langs->trans('PreviewOf');
 ?>
-
+/*<script type="text/javascript">*/
 function docPreview_set_link() {
 	$('a[href]').each(function() {
 		
@@ -16,6 +16,20 @@ function docPreview_set_link() {
 			if(filename == '') filename = $(this).find('img').attr('alt');
 			if(filename == '') filename = $(this).find('img').attr('title');
 			if(filename) {
+				if (url.indexOf('file=') !== -1) {
+					let Tab = url.split('?');
+					if (Tab.length > 1) {
+						let get_params = Tab[1].split('&');
+						get_params.sort(function(a, b) {
+							if (a.indexOf('file=') !== -1) return 1;
+							else if (b.indexOf('file=') !== -1) return -1;
+							return 0;
+						});
+						Tab[1] = get_params.join('&');
+					}
+					url = Tab.join('?');
+				}
+				
 				url = "javascript:docPreview_pop('<?php echo dol_buildpath('/docpreview/Viewer.js/v.html',1) ?>#"+encodeURIComponent(url)+"', '"+filename.replace(/'/g, "\\'")+"')";
 				link = '&nbsp;<a href="'+url+'"><?php echo img_object($langs->trans('Preview'),'docpreview@docpreview') ?></a>';
 			
