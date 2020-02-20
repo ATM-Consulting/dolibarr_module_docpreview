@@ -3,6 +3,7 @@
 	else require('../../../master.inc.php');
 	
 	$langs->load('docpreview@docpreview');
+	header('Content-Type: text/javascript');
 	//echo $langs->trans('PreviewOf');
 ?>
 /*<script type="text/javascript">*/
